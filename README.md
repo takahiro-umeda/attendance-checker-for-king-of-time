@@ -52,6 +52,12 @@ and, install [ChromeDriver](https://chromedriver.chromium.org/downloads) which s
 
 I recommend you to use this program by Docker, because Chrome version and ChromeDriver version must be equal.
 
+like docker, run like this.
+
+`KING_OF_TIME_LOGIN_ID=xxxxxxxxxxxxxxx KING_OF_TIME_LOGIN_PASSWORD=yyyyyyyyyyyyyy OPENING_HOUR=9 CLOSING_HOUR=18 SLACK_INCOMING_WEB_HOOK_URL=https://hooks.slack.com/services/xxxxxxxx/yyyyyyyy/AAAAAAAAAAAA node ./node_modules/attendance-checker-for-king-of-time/dist/index.js`
+
+(or just require. `require("attendance-checker-for-king-of-time");`)
+
 ## Development
 
 After checking out the repo, run `yarn install` to install dependencies. Then, run `yarn lint` to run the lint.
