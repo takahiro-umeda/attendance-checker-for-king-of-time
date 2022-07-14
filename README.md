@@ -1,5 +1,7 @@
 # Attendance checker for KING OF TIME
 
+[![npm version](https://badge.fury.io/js/attendance-checker-for-king-of-time.svg)](https://badge.fury.io/js/attendance-checker-for-king-of-time)
+
 Inside headless browser, automatically sing in to KING OF TIME, and retrieve your attendance time(opening time and closing time).
 
 If the attendance time is not registered, and the time is elapsed your normal opening time or closing time,
