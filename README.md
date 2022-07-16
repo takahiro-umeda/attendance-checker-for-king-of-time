@@ -12,9 +12,51 @@ This is often useful when you are remote worker.
 
 ## Installation and Usage
 
-### Docker
+### via GitHub
 
-1. clone or folk this repository, and build your own docker image. like this, `docker build -t attendance-checker-for-king-of-time:latest .`
+1. fork this repository.
+
+2. set these environment variables on [GitHub secrets](https://docs.github.com/ja/actions/security-guides/encrypted-secrets).
+
+- KING_OF_TIME_LOGIN_ID
+
+  - your KING OF TIME login ID. (now, does not support KING OF TIME API yet...)
+  - e.g.
+    - GitHub secrets name: KING_OF_TIME_LOGIN_ID
+    - value: xxxxxxxxxxxxxxx
+
+- KING_OF_TIME_LOGIN_PASSWORD
+
+  - your KING OF TIME login password.
+  - e.g.
+    - GitHub secrets name: KING_OF_TIME_LOGIN_PASSWORD
+    - value: yyyyyyyyyyyyyy
+
+- OPENING_HOUR
+
+  - your opening hour(working start hour) (on JST)
+  - e.g.
+    - GitHub secrets name: OPENING_HOUR
+    - value: 9
+
+- CLOSING_HOUR
+
+  - your closing hour(working end hour) (on JST)
+  - e.g.
+    - GitHub secrets name: CLOSING_HOUR
+    - value: 18
+
+- SLACK_INCOMING_WEB_HOOK_URL
+  - incoming webhook URL on your slack workspace. **When run thin program, if you don't record attendance on KING OF TIME, this program will notify.**
+  - e.g.
+    - GitHub secrets name: SLACK_INCOMING_WEB_HOOK_URL
+    - value: https://hooks.slack.com/services/xxxxxxxx/yyyyyyyy/AAAAAAAAAAAA
+
+3. Just run `attendance-time-check` action! All secrets are masked, so don't worry about secrets.
+
+### via Docker
+
+1. clone or fork this repository, and build your own docker image. like this, `docker build -t attendance-checker-for-king-of-time:latest .`
 
 2. When you run the docker image, you need to prepare these environment variables.
 
@@ -46,13 +88,13 @@ This is often useful when you are remote worker.
 
 e.g. `docker run --rm --env KING_OF_TIME_LOGIN_ID=xxxxxxxxxxxxxxx --env KING_OF_TIME_LOGIN_PASSWORD=yyyyyyyyyyyyyy --env OPENING_HOUR=9 --env CLOSING_HOUR=18 --env SLACK_INCOMING_WEB_HOOK_URL=https://hooks.slack.com/services/xxxxxxxx/yyyyyyyy/AAAAAAAAAAAA attendance-checker-for-king-of-time:latest`
 
-### npm/yarn
+### via npm/yarn
 
 install this package by npm or yarn.
 
 and, install [ChromeDriver](https://chromedriver.chromium.org/downloads) which should be located in PATH.
 
-I recommend you to use this program by Docker, because Chrome version and ChromeDriver version must be equal.
+I recommend you to use this program by Docker or GitHub Actions(just fork.), because Chrome version and ChromeDriver version must be equal.
 
 like docker, run like this.
 
