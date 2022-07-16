@@ -50,4 +50,4 @@ jobs:
           SLACK_INCOMING_WEB_HOOK_URL: ${{ secrets.SLACK_INCOMING_WEB_HOOK_URL }}
         run: |
           yarn add attendance-checker-for-king-of-time@^1
-          node ./node_modules/attendance-checker-for-king-of-time/dist/index.js
+          node -e "reuqire('attendance-checker-for-king-of-time')"
