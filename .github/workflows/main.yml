@@ -32,6 +32,14 @@ jobs:
           unzip chromedriver_linux64.zip
           echo "/chromedriver" >> $GITHUB_PATH
 
+      - name: add-mask-for-secrets
+        run: |
+          echo "::add-mask::${{ secrets.KING_OF_TIME_LOGIN_ID }}"
+          echo "::add-mask::${{ secrets.KING_OF_TIME_LOGIN_PASSWORD }}"
+          echo "::add-mask::${{ secrets.OPENING_HOUR }}"
+          echo "::add-mask::${{ secrets.CLOSING_HOUR }}"
+          echo "::add-mask::${{ secrets.SLACK_INCOMING_WEB_HOOK_URL }}"
+
       - name: Execute attendance-checker-for-king-of-time script
         env:
           KING_OF_TIME_LOGIN_ID: ${{ secrets.KING_OF_TIME_LOGIN_ID }}
@@ -40,5 +48,6 @@ jobs:
           CLOSING_HOUR: ${{ secrets.CLOSING_HOUR }}
           SLACK_INCOMING_WEB_HOOK_URL: ${{ secrets.SLACK_INCOMING_WEB_HOOK_URL }}
         run: |
+          echo "KING_OF_TIME_LOGIN_ID=$KING_OF_TIME_LOGIN_ID"
           yarn add attendance-checker-for-king-of-time@^1
           node ./node_modules/attendance-checker-for-king-of-time/dist/index.js
