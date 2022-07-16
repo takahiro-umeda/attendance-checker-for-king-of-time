@@ -1,6 +1,7 @@
 name: attendance-time-check
 
 on:
+  # Set your own working time!
   schedule:
     - cron: '0 2,13 * * 1-5'
   workflow_dispatch:
@@ -9,7 +10,6 @@ jobs:
   execute:
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       - uses: actions/setup-node@v3
         with:
@@ -42,6 +42,7 @@ jobs:
 
       - name: Execute attendance-checker-for-king-of-time script
         env:
+          # these env are needed, so please set these env in your fork repository.
           KING_OF_TIME_LOGIN_ID: ${{ secrets.KING_OF_TIME_LOGIN_ID }}
           KING_OF_TIME_LOGIN_PASSWORD: ${{ secrets.KING_OF_TIME_LOGIN_PASSWORD }}
           OPENING_HOUR: ${{ secrets.OPENING_HOUR }}
