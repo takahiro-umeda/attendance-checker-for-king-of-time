@@ -1,8 +1,8 @@
 name: attendance-time-check
 
 on:
-  #  schedule:
-  #    - cron: '0 2,13 * * 1-5'
+  schedule:
+    - cron: '0 2,13 * * 1-5'
   workflow_dispatch:
 
 jobs:
@@ -48,6 +48,5 @@ jobs:
           CLOSING_HOUR: ${{ secrets.CLOSING_HOUR }}
           SLACK_INCOMING_WEB_HOOK_URL: ${{ secrets.SLACK_INCOMING_WEB_HOOK_URL }}
         run: |
-          echo "KING_OF_TIME_LOGIN_ID=$KING_OF_TIME_LOGIN_ID"
           yarn add attendance-checker-for-king-of-time@^1
           node ./node_modules/attendance-checker-for-king-of-time/dist/index.js
