@@ -33,6 +33,12 @@ jobs:
           echo "/chromedriver" >> $GITHUB_PATH
 
       - name: Execute attendance-checker-for-king-of-time script
+        env:
+          KING_OF_TIME_LOGIN_ID: ${{ secrets.KING_OF_TIME_LOGIN_ID }}
+          KING_OF_TIME_LOGIN_PASSWORD: ${{ secrets.KING_OF_TIME_LOGIN_PASSWORD }}
+          OPENING_HOUR: ${{ secrets.OPENING_HOUR }}
+          CLOSING_HOUR: ${{ secrets.CLOSING_HOUR }}
+          SLACK_INCOMING_WEB_HOOK_URL: ${{ secrets.SLACK_INCOMING_WEB_HOOK_URL }}
         run: |
           yarn add attendance-checker-for-king-of-time@^1
           node ./node_modules/attendance-checker-for-king-of-time/dist/index.js
