@@ -16,11 +16,11 @@ This is often useful when you are remote worker.
 
 1. fork this repository.
 
-2. set these environment variables on [GitHub secrets](https://docs.github.com/ja/actions/security-guides/encrypted-secrets).
+2. set these environment variables on [GitHub secrets](https://docs.github.com/ja/actions/security-guides/encrypted-secrets). KING_OF_TIME_LOGIN_ID secret and KING_OF_TIME_LOGIN_PASSWORD secret and SLACK_INCOMING_WEB_HOOK_URL secret are masked, so don't worry about these secrets.
 
 - KING_OF_TIME_LOGIN_ID
 
-  - your KING OF TIME login ID. (now, does not support KING OF TIME API yet...)
+  - your KING OF TIME login ID. (sorry for not support KING OF TIME API yet...)
   - e.g.
     - GitHub secrets name: KING_OF_TIME_LOGIN_ID
     - value: xxxxxxxxxxxxxxx
@@ -52,7 +52,9 @@ This is often useful when you are remote worker.
     - GitHub secrets name: SLACK_INCOMING_WEB_HOOK_URL
     - value: https://hooks.slack.com/services/xxxxxxxx/yyyyyyyy/AAAAAAAAAAAA
 
-3. Just run `attendance-time-check` action! All secrets are masked, so don't worry about secrets.
+3. Change job schedule on .github/workflows/main.yml. if you needed. Default schedule is '0 2,13 \* \* 1-5' (Mon-to-Fri, JST 11:00 and 22:00)
+
+4. Just wait for running `attendance-time-check` action!
 
 ### via Docker
 
