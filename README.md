@@ -52,9 +52,11 @@ This is often useful when you are remote worker.
     - GitHub secrets name: SLACK_INCOMING_WEB_HOOK_URL
     - value: https://hooks.slack.com/services/xxxxxxxx/yyyyyyyy/AAAAAAAAAAAA
 
-3. Change job schedule on .github/workflows/main.yml. if you needed. Default schedule is '0 2,13 \* \* 1-5' (Mon-to-Fri, JST 11:00 and 22:00)
+3. Enable GitHub Action on your forked repository. to do this, visit Actions tab.
 
-4. Just wait for running `attendance-time-check` action!
+4. Change job schedule on .github/workflows/main.yml. if you needed. Default schedule is '0 2,13 \* \* 1-5' (Mon-to-Fri, JST 11:00 and 22:00)
+
+5. Just wait for running `attendance-time-check` action!
 
 ### via Docker
 
