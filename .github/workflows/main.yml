@@ -15,6 +15,13 @@ jobs:
         with:
           node-version: 16
 
+      - name: Set Timezone and locale
+        env:
+          LANG: 'ja_JP.UTF-8'
+          LANGUAGE: 'ja_JP:jp'
+          LC_ALL: 'ja_JP.UTF-8'
+          TZ: 'Asia/Tokyo'
+
       - name: Install Google Chrome
         run: |
           wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
@@ -32,12 +39,10 @@ jobs:
           unzip chromedriver_linux64.zip
           echo "/chromedriver" >> $GITHUB_PATH
 
-      - name: add-mask-for-secrets
+      - name: add-mask-for-secrets-for-KOT-and-Slack
         run: |
           echo "::add-mask::${{ secrets.KING_OF_TIME_LOGIN_ID }}"
           echo "::add-mask::${{ secrets.KING_OF_TIME_LOGIN_PASSWORD }}"
-          echo "::add-mask::${{ secrets.OPENING_HOUR }}"
-          echo "::add-mask::${{ secrets.CLOSING_HOUR }}"
           echo "::add-mask::${{ secrets.SLACK_INCOMING_WEB_HOOK_URL }}"
 
       - name: Execute attendance-checker-for-king-of-time script
