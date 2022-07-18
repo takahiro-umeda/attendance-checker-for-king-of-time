@@ -16,7 +16,7 @@ import { KingOfTime } from './king-of-time';
     await kingOfTime.signIn();
     const attendanceTime = await kingOfTime.retrieveAttendanceTime(currentDay);
 
-    notifier(config).call(attendanceTime, currentDay);
+    await notifier(config).call(attendanceTime, currentDay);
   } finally {
     await driver.quit();
   }

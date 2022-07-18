@@ -8,17 +8,21 @@ export const notifier = (config: Config) => {
   const elapsedOpeningHour = (currentDay: Date) => {
     const openingHour = new Date(currentDay);
     openingHour.setHours(config.OpeningHour, 0, 0);
+    console.log('openingHour=', openingHour);
     return currentDay > openingHour;
   };
 
   const elapsedClosingHour = (currentDay: Date) => {
     const closingHour = new Date(currentDay);
     closingHour.setHours(config.ClosingHour, 0, 0);
+    console.log('closingHour=', closingHour);
     return currentDay > closingHour;
   };
 
   return {
     call: async (attendanceTimeOfTheDay: AttendanceTime, currentDay: Date) => {
+      console.log('currentDay=', currentDay);
+
       console.log(
         'startedTime is',
         attendanceTimeOfTheDay.startedTime || 'unregistered'
