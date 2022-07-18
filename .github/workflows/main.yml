@@ -42,7 +42,6 @@ jobs:
         env:
           LANG: 'ja_JP.UTF-8'
           LANGUAGE: 'ja_JP:jp'
-          LC_ALL: 'ja_JP.UTF-8'
           TZ: 'Asia/Tokyo'
           # these env are needed, so please set these env in your fork repository.
           KING_OF_TIME_LOGIN_ID: ${{ secrets.KING_OF_TIME_LOGIN_ID }}
