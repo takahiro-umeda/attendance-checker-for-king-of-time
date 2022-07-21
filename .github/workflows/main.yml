@@ -3,7 +3,7 @@ name: attendance-time-check
 on:
   # Set your own working time!
   schedule:
-    - cron: '0 2,13 * * 1-5'
+    - cron: '45 2,12 * * 1-5'
   workflow_dispatch:
 
 jobs:
