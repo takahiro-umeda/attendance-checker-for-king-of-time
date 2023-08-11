@@ -21,7 +21,7 @@ jobs:
           echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/google.list
           sudo apt update
           sudo apt install -y google-chrome-stable
-          echo "$(google-chrome --version}"
+          echo "$(google-chrome --version)"
 
       - name: Install Chrome Driver
         run: |
