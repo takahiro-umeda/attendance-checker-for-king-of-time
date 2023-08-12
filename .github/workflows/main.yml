@@ -21,13 +21,13 @@ jobs:
           echo "deb http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee -a /etc/apt/sources.list.d/google.list
           sudo apt update
           sudo apt install -y google-chrome-stable
-          echo "$(google-chrome --version)"
 
       - name: Install Chrome Driver
         run: |
-          CHROME_VERSION_PATH=LATEST_RELEASE_$(google-chrome --version | cut -d " " -f 3 | cut -d "." -f 1-3)
-          CHROME_DRIVER_VERSION_PATH=$(wget -qO- "https://chromedriver.storage.googleapis.com/${CHROME_VERSION_PATH}")
-          CHROME_DRIVER_LOCATION_PATH="https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION_PATH/chromedriver_linux64.zip"
+          # CHROME_VERSION_PATH=LATEST_RELEASE_$(google-chrome --version | cut -d " " -f 3 | cut -d "." -f 1-3)
+          # CHROME_DRIVER_VERSION_PATH=$(wget -qO- "https://chromedriver.storage.googleapis.com/${CHROME_VERSION_PATH}")
+          # CHROME_DRIVER_LOCATION_PATH="https://chromedriver.storage.googleapis.com/$CHROME_DRIVER_VERSION_PATH/chromedriver_linux64.zip"
+          CHROME_DRIVER_LOCATION_PATH="https://edgedl.me.gvt1.com/edgedl/chrome/chrome-for-testing/115.0.5790.170/linux64/chromedriver-linux64.zip"
           sudo mkdir /chromedriver
           wget -O chromedriver_linux64.zip $CHROME_DRIVER_LOCATION_PATH
           unzip chromedriver_linux64.zip
