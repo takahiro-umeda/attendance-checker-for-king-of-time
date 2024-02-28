@@ -1,6 +1,6 @@
 {
   "name": "attendance-checker-for-king-of-time",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "repository": "ssh://git@github.com/shoutatani/attendance-checker-for-king-of-time.git",
   "author": "shoutatani <10176164+shoutatani@users.noreply.github.com>",
