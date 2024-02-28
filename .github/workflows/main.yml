@@ -51,5 +51,5 @@ jobs:
           CLOSING_HOUR: ${{ secrets.CLOSING_HOUR }}
           SLACK_INCOMING_WEB_HOOK_URL: ${{ secrets.SLACK_INCOMING_WEB_HOOK_URL }}
         run: |
-          yarn add attendance-checker-for-king-of-time@^1
+          yarn add attendance-checker-for-king-of-time@1.0.2
           node -e "require('attendance-checker-for-king-of-time')"
